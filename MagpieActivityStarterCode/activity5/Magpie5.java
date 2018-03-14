@@ -265,6 +265,10 @@ public class Magpie5
 			"Hmmm.",
 			"Do you really think so?",
 			"You don't say."
+			"I like apple pie."
+			"You are too late!"
+			"Who are you?"
+			"Oh my goodness!"
 	};
 	
 }
