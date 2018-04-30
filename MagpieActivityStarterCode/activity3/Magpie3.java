@@ -44,7 +44,22 @@ public class Magpie3
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		} else if (statement.indexOf("dog") >= 0 || statement.indexOf("cat") >= 0){
+			response = "Tell me more about your pets.";
+		} else if (statement.indexOf("Mr") >= 0 || statement.indexOf("Mr.") >= 0){
+			response = "He sounds like a good teacher.";
+		} else if (statement.indexOf("Mrs") >= 0 || statement.indexOf("Mrs.") >= 0) {
+			response = "She sounds like a good teacher.";
+		} else if (!(statementTrim.length() >= 1)){
+			response = "Say something, please.";
+		} else if (statement.indexOf("weather") >= 0){
+			response = "I think it is good to bring an umbrella everyday just in case.";
+		} else if ((statement.indexOf("I") >= 0 || statement.indexOf("i") >= 0 )&& statement.indexOf("think") >= 0){
+			response = "You are always right.";
+		} else if (statement.indexOf("china") >= 0 || statement.indexOf("China") >= 0){
+			response = "Service Unavailable: GFW Blockade";
 		}
+		
 		else
 		{
 			response = getRandomResponse();
