@@ -30,20 +30,16 @@ public class Magpie3
 	public String getResponse(String statement)
 	{
 		String response = "";
-		if (statement.length() == 0)
-		{
+		if (statement.length() == 0) {
 			response = "Say something, please.";
-		}
-		else if (findKeyword(statement, "no") >= 0)
-		{
+		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
-		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
-		{
+		} else if (findKeyword(statement, "mother") >= 0
+			|| findKeyword(statement, "father") >= 0
+			|| findKeyword(statement, "sister") >= 0
+			|| findKeyword(statement, "brother") >= 0) {
 			response = "Tell me more about your family.";
+		}
 		} else if (statement.indexOf("dog") >= 0 || statement.indexOf("cat") >= 0){
 			response = "Tell me more about your pets.";
 		} else if (statement.indexOf("Mr") >= 0 || statement.indexOf("Mr.") >= 0){
@@ -56,14 +52,13 @@ public class Magpie3
 			response = "I think it is good to bring an umbrella everyday just in case.";
 		} else if ((statement.indexOf("I") >= 0 || statement.indexOf("i") >= 0 )&& statement.indexOf("think") >= 0){
 			response = "You are always right.";
-		} else if (statement.indexOf("china") >= 0 || statement.indexOf("China") >= 0){
-			response = "Service Unavailable: GFW Blockade";
 		}
 		
-		else
-		{
+		else {
 			response = getRandomResponse();
 		}
+		
+		
 		return response;
 	}
 
