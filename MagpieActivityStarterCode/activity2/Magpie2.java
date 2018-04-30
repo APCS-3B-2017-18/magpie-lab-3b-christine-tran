@@ -1,10 +1,10 @@
 /**
  * A program to carry on conversations with a human user.
- * This is the initial version that:  
+ * This is the initial version that:
  * <ul><li>
  *       Uses indexOf to find strings
  * </li><li>
- * 		    Handles responding to simple words and phrases 
+ * 		    Handles responding to simple words and phrases
  * </li></ul>
  * This version uses a nested if to handle default responses.
  * @author Laurie White
@@ -13,17 +13,18 @@
 public class Magpie2
 {
 	/**
-	 * Get a default greeting 	
+	 * Get a default greeting
 	 * @return a greeting
 	 */
 	public String getGreeting()
 	{
 		return "Hello, let's talk.";
 	}
-	
+
+
 	/**
 	 * Gives a response to a user statement
-	 * 
+	 *
 	 * @param statement
 	 *            the user statement
 	 * @return a response based on the rules given
@@ -31,6 +32,8 @@ public class Magpie2
 	public String getResponse(String statement)
 	{
 		String response = "";
+		String statementTrim = statement.trim();
+
 		if (statement.indexOf("no") >= 0)
 		{
 			response = "Why so negative?";
@@ -41,7 +44,22 @@ public class Magpie2
 				|| statement.indexOf("brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		} else if (statement.indexOf("dog") >= 0 || statement.indexOf("cat") >= 0){
+			response = "Tell me more about your pets.";
+		} else if (statement.indexOf("Mr") >= 0 || statement.indexOf("Mr.") >= 0){
+			response = "He sounds like a good teacher.";
+		} else if (statement.indexOf("Mrs") >= 0 || statement.indexOf("Mrs.") >= 0) {
+			response = "She sounds like a good teacher.";
+		} else if (!(statementTrim.length() >= 1)){
+			response = "Say something, please.";
+		} else if (statement.indexOf("weather") >= 0){
+			response = "I think it is good to bring an umbrella everyday just in case.";
+		} else if ((statement.indexOf("I") >= 0 || statement.indexOf("i") >= 0 )&& statement.indexOf("think") >= 0){
+			response = "You are always right.";
+		} else if (statement.indexOf("china") >= 0 || statement.indexOf("China") >= 0){
+			response = "Service Unavailable: GFW Blockade";
 		}
+
 		else
 		{
 			response = getRandomResponse();
@@ -55,11 +73,11 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
-		
+
 		if (whichResponse == 0)
 		{
 			response = "Interesting, tell me more.";
@@ -75,8 +93,14 @@ public class Magpie2
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		} else if (whichResponse == 4){
+			response = "Wow I'm intrigued.";
+		} else if (whichResponse == 5){
+			response = "Honestly, I'm just very glad we get to chat like this.";
 		}
 
 		return response;
 	}
 }
+
+
