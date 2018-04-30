@@ -52,6 +52,10 @@ public class Magpie4
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
 			response = transformIWantToStatement(statement);
+		}else if (findKeyword(statement, "I want") >= 0) {
+			response = transformIWantStatement(statement);
+		}else if ((findKeyword(statement, "I", 0) >=0) && (findKeyword(statement, "you", 1) >=0(( {
+			response = transformYouSthMeStatement(statement);
 		}
 
 		else
